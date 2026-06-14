@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pulse-Check | Watchdog Sentinel</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🐾 Watchdog Sentinel</h1>
+      <p class="subtitle">Pulse-Check API — Dead Man's Switch Dashboard</p>
+    </header>
+
+    <section class="card">
+      <h2>Register New Monitor</h2>
+      <form id="register-form">
+        <div class="form-row">
+          <label for="id">Device ID</label>
+          <input type="text" id="id" placeholder="device-123" required />
+        </div>
+        <div class="form-row">
+          <label for="timeout">Timeout (seconds)</label>
+          <input type="number" id="timeout" placeholder="60" min="1" required />
+        </div>
+        <div class="form-row">
+          <label for="alert_email">Alert Email</label>
+          <input type="email" id="alert_email" placeholder="admin@critmon.com" required />
+        </div>
+        <button type="submit">Register Monitor</button>
+      </form>
+      <p id="register-status" class="status-msg"></p>
+    </section>
+
+    <section class="card">
+      <h2>Monitors</h2>
+      <p class="hint">Auto-refreshes every second.</p>
+      <table id="monitors-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Status</th>
+            <th>Time Remaining</th>
+            <th>Timeout</th>
+            <th>Heartbeats</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="monitors-body">
+          <tr><td colspan="7" class="empty">No monitors yet.</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <script src="/script.js"></script>
+</body>
+</html>
